@@ -1,13 +1,50 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
+//Камень-Ножницы-Бумага
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
+#include<iostream>
+#include<cstring>
+#include<conio.h>
+#include<time.h>
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
+using namespace std;
+ 
+int main(void)
+{
+	int y,x,vib;
+	start:
+	cout << "Your vibor:" << '\n' << "Bumaga - 0" <<'\n' << "Stone - 1" << '\n' << "Nozhnici - 2" << '\n';
+	cin >> x;
+	srand(time(NULL));
+	y = rand()%3;
+	cout << "Comp vibor - "<< y << '\n';
+
+	if(x == y)
+	{
+		cout << "Good" << '\n';
+	}
+	else if((x == 0 && y == 1) || (x == 1 && y == 2) || (x==2 && y == 0))
+	{
+		cout << "You won!!" << '\n';
+	}
+	else if((x == 1 && y == 0) || (x == 0 && y == 2) || (x == 2 && y == 1))
+	{
+		cout << "you lose" << '\n';
+	}
+
+	cout << "Do you want continua?" << '\n' << "Yes - 1" << '\n' << "No - 2" << '\n';
+	cin >> vib;
+	do
+	{
+	if(vib == 1)
+	{
+		goto start;
+	}
+	else if(vib == 2)
+	{
+		exit(0);
+	}
+	}while(vib!='1' || vib!='2');
+	
+
+
+	getch();
+}
